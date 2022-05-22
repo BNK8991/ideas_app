@@ -13,6 +13,9 @@ const ideaRoute = require("./routes/ideas");
 const closeDateRoute = require("./routes/closeDates")
 const router = express.Router();
 const path = require("path");
+const cors = require('cors');
+
+app.use(cors())
 
 dotenv.config();
 
