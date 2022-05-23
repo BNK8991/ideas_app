@@ -18,6 +18,9 @@ function TopNavigation (props) {
     const handleNavigate = (eventKey) => {
         navigate(eventKey);
     }
+    const logout = () => {
+        localStorage.removeItem('user');
+      };
     const handleAdminNav = () => {
         if(user.role=="admin") 
         {
@@ -44,7 +47,7 @@ function TopNavigation (props) {
                         <DropdownButton onSelect={(e) => handleNavigate(e)} as={ButtonGroup} variant="primary" id="dropdown-basic-button" title={currentMode}>
                             <Dropdown.Item eventKey="/">Home</Dropdown.Item>
                             {handleAdminNav()}
-                            <Dropdown.Item eventKey="3">
+                            <Dropdown.Item eventKey={logout()}>
                                 <div>
                                     <label className="paddingRight">Sign Out</label>
                                     <FaSignOutAlt className="iconSize"></FaSignOutAlt>
